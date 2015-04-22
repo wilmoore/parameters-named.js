@@ -1,6 +1,6 @@
 {
   "name": "parameters-named",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Named parameters supporting default value, validation, and environment variables.",
   "main": "index.js",
   "scripts": {
