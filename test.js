@@ -87,7 +87,9 @@ var parameters = [
 
   {
     name: 'single error',
-    args: [ { url: 'obviously-not-a-url' } ],
+    args: [{
+      url: 'obviously-not-a-url'
+    }],
     errs: 1
   },
 
@@ -99,6 +101,14 @@ var parameters = [
       url: 'obviously-not-a-url'
     }],
     errs: 3
+  },
+
+  {
+    name: 'undefined parameter error',
+    args: [{
+      not_defined_parameter: 'not defined'
+    }],
+    errs: 1
   }
 ]
 

@@ -13,7 +13,7 @@ var has = require('env-accessors').has
  * exports.
  */
 
-module.exports = parametersNamed
+module.exports = parameters
 
 /**
  * Named parameters supporting default value, validation, and environment variables.
@@ -25,7 +25,7 @@ module.exports = parametersNamed
  * string literal.
  */
 
-function parametersNamed (spec) {
+function parameters (spec) {
   var defs = {}
   var envs = {}
 
@@ -38,6 +38,7 @@ function parametersNamed (spec) {
     var opts = cat(defs, envs, params)
     var errs = []
 
+    def(opts, spec, errs)
     req(opts, spec, errs)
     val(opts, spec, errs)
 
@@ -47,6 +48,39 @@ function parametersNamed (spec) {
       params: opts
     }
   }
+}
+
+/**
+ * Ensure that parameter is defined.
+ *
+ * @param {Object} params
+ * Parameters value object.
+ *
+ * @param {String} spec
+ * Parameters definition object.
+ *
+ * @param {Array} errs
+ * Errors list.
+ */
+
+function def (params, spec, errs) {
+  for (var key in params) {
+    if (!spec.hasOwnProperty(key)) defError(key, errs)
+  }
+}
+
+/**
+ * Push a `RangeError` into `errs` list.
+ *
+ * @param {String} key
+ * Key for which error is being created.
+ *
+ * @param {Array} errs
+ * Errors list.
+ */
+
+function defError (key, errs) {
+  errs.push(new RangeError(fmt('% is not a valid parameter!', key)))
 }
 
 /**
@@ -70,9 +104,6 @@ function req (params, spec, errs) {
 
 /**
  * Push a `ReferenceError` into `errs` list.
- *
- * @param {Object} params
- * Parameters object.
  *
  * @param {String} key
  * Key for which error is being created.
@@ -100,7 +131,7 @@ function reqError (key, errs) {
 
 function val (params, spec, errs) {
   for (var key in params) {
-    if (isFunction(spec[key].val) && !spec[key].val(params[key])) valError(key, errs)
+    if (key in spec && isFunction(spec[key].val) && !spec[key].val(params[key])) valError(key, errs)
   }
 }
 

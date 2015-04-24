@@ -12,25 +12,27 @@
 
 ## Example
 
-    var parametersNamed = require('parameters-named');
-    var parse = parametersNamed({
-        app: {
-          def: 'awesome',
-          env: 'AWESOME_APP_NAME'
-        },
+```js
+var parametersNamed = require('parameters-named');
+var parse = parametersNamed({
+    app: {
+      def: 'awesome',
+      env: 'AWESOME_APP_NAME'
+    },
 
-        max: {
-          req: true,
-          env: 'AWESOME_APP_MAX'
-          val: function (val) { return !isNaN(val) } // must be a number
-        }
-    })
+    max: {
+      req: true,
+      env: 'AWESOME_APP_MAX'
+      val: function (val) { return !isNaN(val) } // must be a number
+    }
+})
 
-    var opt = opts({ max: 5 })
-    //=> { app: 'awesome', max: 5 }
+var opt = opts({ max: 5 })
+//=> { app: 'awesome', max: 5 }
 
-    % AWESOME_APP_NAME=super-awesome AWESOME_APP_MAX=10 node .
-    //=> { app: 'super-awesome', max: 10 }
+% AWESOME_APP_NAME=super-awesome AWESOME_APP_MAX=10 node .
+//=> { app: 'super-awesome', max: 10 }
+```
 
 ## Features
 
@@ -41,13 +43,16 @@
 
 ## API
 
-###### `parametersNamed(spec)`
+> `parameters(spec)`
 
- * `spec` parameter definition object:
-     * `def` default value.
-     * `env` environment variable name.
-     * `req` required?
-     * `val` validation predicate function (must return `Boolean` value).
+###### Arguments
+
+ * **`spec: (Object)`** parameter definition object:
+     * `key (Object)` argument name:
+         * `def` default value.
+         * `env` environment variable name.
+         * `req` whether required
+         * `val` validation predicate function (must return `Boolean` value).
 
 ## Reference
 
