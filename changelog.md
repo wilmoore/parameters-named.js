@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file (keepachangelog.com).
 
+## 0.3.0 - 2015-04-23
+### Changed
+- fixed bug where environment variables had to be set before defining parameters.
+
 ## 0.2.1 - 2015-04-23
 ### Added
 - added undefined parameter error checking.
