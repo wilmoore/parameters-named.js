@@ -56,15 +56,15 @@ var params = {
 var parameters = [
   {
     name: 'Override via param',
-    args: [ { app: 'parameter-override' } ],
-    expectedKey: 'app', expectedVal: 'parameter-override'
+    args: [ { app: 'parameterOverride' } ],
+    expectedKey: 'app', expectedVal: 'parameterOverride'
   },
 
   {
     name: 'Override via env',
     args: [],
-    envs: { EXAMPLE_SEARCH_API_APP: 'env-override' },
-    expectedKey: 'app', expectedVal: 'env-override'
+    envs: { EXAMPLE_SEARCH_API_APP: 'envOverride' },
+    expectedKey: 'app', expectedVal: 'envOverride'
   },
 
   {

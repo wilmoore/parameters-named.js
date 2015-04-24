@@ -13,25 +13,31 @@
 ## Example
 
 ```js
-var parametersNamed = require('parameters-named');
-var parse = parametersNamed({
-    app: {
-      def: 'awesome',
-      env: 'AWESOME_APP_NAME'
-    },
+var assert = require('assert')
+var params = require('./')({
+  app: {
+    def: 'awesome',
+    env: 'AWESOME_APP_NAME'
+  },
 
-    max: {
-      req: true,
-      env: 'AWESOME_APP_MAX'
-      val: function (val) { return !isNaN(val) } // must be a number
-    }
+  max: {
+    req: true,
+    env: 'AWESOME_APP_MAX',
+    val: function (val) { return /\d+$/.test(val) } // must be numeric
+  }
 })
 
-var opt = opts({ max: 5 })
-//=> { app: 'awesome', max: 5 }
+assert.deepEqual(params({ max: 5 }).params, {
+  app: 'awesome',
+  max: 5
+})
 
-% AWESOME_APP_NAME=super-awesome AWESOME_APP_MAX=10 node .
-//=> { app: 'super-awesome', max: 10 }
+process.env.AWESOME_APP_MAX = 30
+
+assert.deepEqual(params({}).params, {
+  app: 'awesome',
+  max: process.env.AWESOME_APP_MAX
+})
 ```
 
 ## Features
