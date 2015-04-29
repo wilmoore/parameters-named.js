@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file (keepachangelog.com).
 
+## 0.3.2 - 2015-04-28
+### Added
+- update object-concat.
+
 ## 0.3.1 - 2015-04-28
 ### Added
 - add `.gitattributes`.
