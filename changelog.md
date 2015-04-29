@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file (keepachangelog.com).
 
+## 0.3.1 - 2015-04-28
+### Added
+- add `.gitattributes`.
+
+### Changed
+- always provide `.params` even when there are errors.
+- fixpack package.json.
+- use github license
+
 ## 0.3.0 - 2015-04-23
 ### Changed
 - fixed bug where environment variables had to be set before defining parameters.

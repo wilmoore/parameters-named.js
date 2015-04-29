@@ -41,7 +41,7 @@ function parameters (spec) {
     return {
       error: errs.length ? errs[0] : null,
       errors: errs,
-      params: errs.length ? {} : opts
+      params: opts
     }
   }
 }

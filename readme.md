@@ -1,10 +1,11 @@
-# parameters-named [![Build Status](http://img.shields.io/travis/wilmoore/parameters-named.js.svg)](https://travis-ci.org/wilmoore/parameters-named.js) [![Code Climate](https://codeclimate.com/github/wilmoore/parameters-named.js/badges/gpa.svg)](https://codeclimate.com/github/wilmoore/parameters-named.js) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-
+# parameters-named
 > Named parameters supporting default value, validation, and environment variables.
 
-###### npm install
+[![Build Status](http://img.shields.io/travis/wilmoore/parameters-named.js.svg)](https://travis-ci.org/wilmoore/parameters-named.js) [![Code Climate](https://codeclimate.com/github/wilmoore/parameters-named.js/badges/gpa.svg)](https://codeclimate.com/github/wilmoore/parameters-named.js) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-    npm install parameters-named --save
+```shell
+npm install parameters-named --save
+```
 
 ###### npm stats
 
@@ -49,7 +50,7 @@ assert.deepEqual(params({}).params, {
 
 ## API
 
-> `parameters(spec)`
+### `parameters(spec)`
 
 ###### Arguments
 
@@ -75,5 +76,4 @@ assert.deepEqual(params({}).params, {
 
 ## Licenses
 
-[![LICENSE](http://img.shields.io/npm/l/parameters-named.svg)](license)
-
+[![GitHub license](https://img.shields.io/github/license/wilmoore/parameters-named.js.svg)](https://github.com/wilmoore/parameters-named.js/blob/master/license)

@@ -86,6 +86,15 @@ var parameters = [
   },
 
   {
+    name: 'has errors but still produces params',
+    args: [{
+      url: 'obviously-not-a-url'
+    }],
+    expectedKey: 'key', expectedVal: DEFAULT_KEY,
+    errs: 1
+  },
+
+  {
     name: 'single error',
     args: [{
       url: 'obviously-not-a-url'
@@ -126,8 +135,6 @@ function resetEnvs (envs) {
  */
 
 test('parametersNamed()', function (t) {
-  t.plan(parameters.length)
-
   parameters.forEach(function (p) {
     env.set(p.envs)
 
@@ -135,13 +142,15 @@ test('parametersNamed()', function (t) {
     var actual = parse.apply(null, p.args)
 
     if (p.expectedKey) {
-      t.equal(actual.params[p.expectedKey], p.expectedVal, p.name)
+      t.equal(actual.params[p.expectedKey], p.expectedVal, p.name + ' (.param check)')
     }
 
     if (p.errs) {
-      t.equal(actual.errors.length, p.errs, p.name)
+      t.equal(actual.errors.length, p.errs, p.name + ' (.errors check)')
     }
 
     resetEnvs(p.envs)
   })
+
+  t.end()
 })
