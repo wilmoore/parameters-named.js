@@ -15,7 +15,7 @@ npm install parameters-named --save
 
 ```js
 var assert = require('assert')
-var params = require('./')({
+var params = require('parameters-named')({
   app: {
     def: 'awesome',
     env: 'AWESOME_APP_NAME'

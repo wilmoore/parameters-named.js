@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file (keepachangelog.com).
 
+## 0.3.3 - 2015-04-29
+### Changed
+- update readme example to require actual package name.
+
 ## 0.3.2 - 2015-04-28
 ### Added
 - update object-concat.
